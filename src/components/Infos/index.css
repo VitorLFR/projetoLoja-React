@@ -1,0 +1,60 @@
+/* Fim da estilização do Main */
+
+.maisInfo{
+    background: var(--cor02);
+    transition: var(--themeChangeTime);
+}
+
+.maisInfoContent{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1%;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3%;
+}
+
+.maisInfoContent > div > h2{
+    font-size: 1.5vw;
+    font-weight: 500;
+    color: var(--corFonte02);
+    transition: var(--themeChangeTime);
+}
+
+.iconAbout{
+    text-align: center;
+}
+
+.iconAbout img{
+    width: 2dvw;
+}
+
+/* Fim estilização do mais informações 01 */
+
+.maisInfo02{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2%;
+    
+}
+
+.maisInfo02 > div{
+
+    align-items: center;
+    text-align: center;
+    font-weight: 500;
+}
+.maisInfo02 > div > img{
+    width: 30%;
+    margin-bottom: 2%;
+}
+
+.maisInfo02 > div > p{
+    color: var(--corFonte02);
+    transition: var(--themeChangeTime);
+    font-size: 2vw;
+}
+
+/* Fim estilização mais informações 02 */

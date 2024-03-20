@@ -1,0 +1,64 @@
+header{
+    background-color: var(--cor01);
+    width: 100%;
+}
+
+.headerContent{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1%;
+    margin: 0 auto;
+}
+
+.logo{
+    width: 7%;
+}
+
+.logo img{
+    width: 100%;
+}
+
+header li{
+    display: inline-block;
+}
+
+.menu{
+    color: var(--corFonte01);   
+    text-wrap: nowrap;
+    width: 20%;
+    text-align: center;
+    transition: var(--themeChangeTime);
+}
+
+.menu a{
+    font-size: 1.5vw;
+    word-spacing: 0.2rem;
+    font-weight: 100;
+    color: var(--corFonte01);
+    transition: var(--themeChangeTime);
+}
+
+.menu a:hover{
+    text-decoration: underline;
+}
+
+ul > li{
+    margin-right: 10%;
+}
+
+a{
+    text-decoration: none;
+    color: var(--corFonte01);
+    transition: var(--themeChangeTime);
+}
+
+/* Configurando Menu mobile */
+
+.menuMobile{
+    display: none;
+}
+
+.menuMobileContent{
+    display: none;
+}
