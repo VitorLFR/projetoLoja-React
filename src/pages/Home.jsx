@@ -1,5 +1,7 @@
 
-
+export function productTypeCatch(productType){
+    localStorage.setItem("productType", productType)
+}
 export function Home() {
     return (
         <main className="mainP">
@@ -33,7 +35,7 @@ export function Home() {
 
                             <p>FAZENDAS DE BOA QUALIDADE PERTO DE VOCÊ</p>
 
-                            <a href="/products" id="fazendasProducts">PROCURAR</a>
+                            <a href="/shop" id="fazendasProducts" onClick={() => productTypeCatch("/fazendas")}>PROCURAR</a>
 
                         </div>
                     </div>
@@ -47,7 +49,7 @@ export function Home() {
                             
                             <p>TERRENOS DE BOA QUALIDADE PERTO DE VOCÊ</p>
 
-                            <a href="/products" id="terrenosProducts" >PROCURAR</a>
+                            <a href="/shop" id="terrenosProducts" onClick={() => productTypeCatch("/terrenos")} >PROCURAR</a>
 
                         </div>
                     </div>
@@ -60,7 +62,7 @@ export function Home() {
 
                             <p>KITNETS DE BOA QUALIDADE PERTO DE VOCÊ</p>
 
-                            <a href="/products" id="kitnetsProducts">PROCURAR</a>
+                            <a href="/shop" id="kitnetsProducts" onClick={() => productTypeCatch("/kitnets")}>PROCURAR</a>
 
                         </div>
                     </div>
@@ -68,7 +70,7 @@ export function Home() {
                 </div>                
 
             </section>
-            <a href="/products" id="seeAllProducts">VER TUDO</a>
+            <a href="/shop" id="seeAllProducts" onClick={() => productTypeCatch("/")}>VER TUDO</a>
 
         </main>        
 

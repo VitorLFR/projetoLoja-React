@@ -15,7 +15,6 @@ body{
 /* Fim da estilização padrão */
 
 :root{
-    /* --corFundo: white; */
     --corFundo: linear-gradient(to bottom, white, white,  #2ec4b574);
     --cor01: #032612;
     --cor02: #009688;
@@ -26,9 +25,66 @@ body{
     --themeChangeTime: ease 0.25s;
 }
 
-/* Estilização Home */
+/* Fim da criação de variáveis */
 
-.mainP{
+header{
+    background-color: var(--cor01);
+    width: 100%;
+}
+
+.headerContent{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1%;
+    margin: 0 auto;
+}
+
+.logo{
+    width: 7%;
+}
+
+.logo img{
+    width: 100%;
+}
+
+header li{
+    display: inline-block;
+}
+
+.menu{
+    color: var(--corFonte01);   
+    text-wrap: nowrap;
+    width: 20%;
+    text-align: center;
+    transition: var(--themeChangeTime);
+}
+
+.menu a{
+    font-size: 1.5vw;
+    word-spacing: 0.2rem;
+    font-weight: 100;
+    color: var(--corFonte01);
+    transition: var(--themeChangeTime);
+}
+
+.menu a:hover{
+    text-decoration: underline;
+}
+
+ul > li{
+    margin-right: 10%;
+}
+
+a{
+    text-decoration: none;
+    color: var(--corFonte01);
+    transition: var(--themeChangeTime);
+}
+
+/* Fim da estilização do Header */
+
+main{
     margin-bottom: 5%;
     text-align: center;
 }
@@ -138,35 +194,196 @@ body{
     transition: var(--themeChangeTime);
 }
 
-/* Estilização do botão do tema */
+/* Fim da estilização do Main */
+
+.maisInfo{
+    background: var(--cor02);
+    transition: var(--themeChangeTime);
+}
+
+.maisInfoContent{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1%;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3%;
+}
+
+.maisInfoContent > div > h2{
+    font-size: 1.5vw;
+    font-weight: 500;
+    color: var(--corFonte02);
+    transition: var(--themeChangeTime);
+}
+
+.iconAbout{
+    text-align: center;
+}
+
+.iconAbout img{
+    width: 2dvw;
+}
+
+/* Fim estilização do mais informações 01 */
+
+.maisInfo02{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2%;
+    
+}
+
+.maisInfo02 > div{
+
+    align-items: center;
+    text-align: center;
+    font-weight: 500;
+}
+.maisInfo02 > div > img{
+    width: 30%;
+    margin-bottom: 2%;
+}
+
+.maisInfo02 > div > p{
+    color: var(--corFonte02);
+    transition: var(--themeChangeTime);
+    font-size: 2vw;
+}
+
 
 .theme{
     position: fixed;
     left: 97%;
     transition: ease 0.5s;
     z-index: 5;
-  }
-  
-  .theme:hover{
+}
+
+.theme:hover{
     transition: ease 0.5s;
     transform: scale(1.3);
-  }
-  
-  
-  .theme > img{
+}
+
+
+.theme > img{
     width: 2%;
-  }
-  .theme > button > img{
+}
+.theme > button > img{
     width: 100%;
-  }
-  
-  .theme > button{
+}
+
+.theme > button{
     background-color: #bcc5ce00;
     width: 75%;
     max-width: 50px;
     cursor: pointer;
     border: none;
-  }
-  
-  
+}
 
+/* Configurando Menu mobile */
+
+.menuMobile{
+    display: none;
+}
+
+.menuMobileContent{
+    display: none;
+}
+/* Configurando para telas com menos de 600px */
+
+@media (max-width: 600px) {
+    
+    .categorias h2{
+        text-align: center;
+        margin-top: 5%;
+        text-decoration: underline;
+        font-size: 2vw;
+        font-weight: 600;
+        margin-bottom: 2%;
+        color: var(--corFonte02);
+        transition: var(--themeChangeTime);
+    }
+    
+    .box-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 0;
+        flex-direction: column;
+    }
+
+    .container{
+        width: 25%;
+        flex-direction: column;
+        margin-bottom: 5%;
+    }
+    
+    .categorias h2{
+        text-align: center;
+        margin-top: 0;
+        text-decoration: underline;
+        font-size: 2vw;
+        font-weight: 600;
+        margin-bottom: 2%;
+        color: var(--corFonte02);
+        transition: var(--themeChangeTime);
+    }
+
+    .barraInicio{
+        margin-bottom: 5%;
+        background: var(--cor02);
+        transition: var(--themeChangeTime);
+    }
+    .menuMobile{
+        display: block;
+        cursor: pointer;
+    }
+
+    .menuMobile > img{
+        width: 3vw;
+    }
+
+    .menu{
+        display: none;
+    }
+
+    .menuMobileContent{
+        display: none;
+        background-color: #D9D9D9;
+        position: fixed;
+        height: 100%;
+        width: 30%;
+    }
+
+    .menuMobileContentOp{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        width: 50%;
+        margin-top: 5%;
+    }
+
+    .menuMobileContentOp li a {
+        color: var(--corFonte02);
+        font-size: 3vw;
+        text-align: center;
+        text-decoration: none;
+        
+    }
+    
+    .menuMobileContentOp li a:hover {
+        text-decoration: underline;
+    }
+    
+    .fixed-header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 2; 
+    }
+}
