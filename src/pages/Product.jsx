@@ -4,48 +4,36 @@ import { useEffect, useState } from 'react';
 
 const currentId = localStorage.getItem("produtoId");
 console.log(localStorage.getItem("produtoId"))
+var currentProductType = localStorage.getItem("productType");
 
 
 
 export function Product(){
 
-    var typeProductPath = "http://localhost:7000/" 
-
-    var currentProductType = localStorage.getItem("productType");
-    if(currentProductType != "/"){
-        fetch(typeProductPath + currentProductType + "s/?id=" + currentId).then((data) => {
-            return data.json();
-          });
-    } else{
-        currentProductType = localStorage.getItem("productTypeAll")
-        fetch(typeProductPath + currentProductType.toLowerCase() + "s/?id=" + currentId).then((data) => {
-            return data.json();
-          });
-    }
+    var typeProductPath = "http://localhost:7000" 
     
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    if (currentProductType === "/") {
-      axios
-        .get("http://localhost:7000/fazendas")
-        .then((response1) => axios.get("http://localhost:7000/terrenos"))
-        .then((response2) => axios.get("http://localhost:7000/kitnets"))
-        .then((response3) => {
-          setData([
-            ...response1.data,
-            ...response2.data,
-            ...response3.data
-          ]);
-        })
-        .catch((error) => console.error("Erro ao buscar produtos: ", error));
-    } else {
-      axios
-        .get("http://localhost:7000" + currentProductType)
-        .then((response) => setData(response.data))
-        .catch((error) => console.error("Erro ao buscar produtos: ", error));
-    }
-  }, [currentProductType]);
+    const fetchData = async () => {
+      try {
+        let response;
+        if (currentProductType !== "/") {
+          response = await axios.get(`${typeProductPath}${currentProductType}/?id=${currentId}`);
+        } else {
+          const productTypeAll = localStorage.getItem("productTypeAll");
+          response = await axios.get(`${typeProductPath}/${productTypeAll.toLowerCase()}s/?id=${currentId}`);
+        }
+        setData(response.data);
+      } catch (error) {
+        console.error("Erro ao buscar produto:", error);
+      }
+    };
+
+    fetchData();
+  }, [currentId, currentProductType]);
+
+
 
   return(
         

@@ -2,7 +2,7 @@ import './index.css'
 
 export function Footer(){
     return (
-        <footer>
+        <footer className='FooterPage'>
             <div className="footerContent">
                 <div><a href="#">Termos de Uso</a></div>
                 <div><p>

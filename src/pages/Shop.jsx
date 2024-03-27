@@ -15,6 +15,7 @@ export function productInfos(produtoId, produtoTipo){
   productCatch(produtoId);
   productTypeCatchAll(produtoTipo)
 
+  localStorage.setItem("produtoId", produtoId);
   localStorage.setItem("productTypeAll", produtoTipo)
 }
 

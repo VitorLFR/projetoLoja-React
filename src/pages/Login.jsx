@@ -1,68 +1,99 @@
 import '../components/Login/index.css'
+import axios from 'axios';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export function Login(){
+export function Login() {
 
-    return(
+    const [nome, setNome] = useState('');
+    const [senha, setSenha] = useState('');
+    const [loginError, setLoginError] = useState(false);
+    const navegacao = useNavigate();
+
+    const handleNomeChange = (event) => {
+        setNome(event.target.value);
+    };
+
+    const handleSenhaChange = (event) => {
+        setSenha(event.target.value);
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        try {
+            const response = await axios.get(`http://localhost:7000/users?nome=${nome}&senha=${senha}`);
+            if (response.data.length > 0) {
+                // se o login for certo
+                navegacao('/');
+            } else {
+                // Usuário ou senha incorretos
+                setLoginError(true);
+            }
+        } catch (error) {
+            console.error('Erro ao fazer login:', error);
+        }
+    };
+
+    return (
         <main>
 
-        <section className="barraInicio">
+            <section className="barraInicio">
 
-            <div className="barraInicioContent">
-                <div className="iconInicio">
-                    <img src="/public/medias/images/iconCasa.svg" alt="" id="iconCasa"></img>
-                </div>
-
-                <h2>Bem vindo a melhor loja de imóveis do Brasil</h2>
-            </div>
-        </section>
-
-        <section className="categorias">
-
-            <div className="theme">
-                <button id="themeChanger"><img src="public/medias/images/TEMA.png" alt="" id="themeIcon"></img></button>
-            </div>
-
-            <div className="box-containerL">
-
-                <div className="containerL">
-                    <div className="icon">
-                        <img src="public/medias/images/entrarIcon.svg" alt="" id="boxEntrar"></img>
+                <div className="barraInicioContent">
+                    <div className="iconInicio">
+                        <img src="/public/medias/images/iconCasa.svg" alt="" id="iconCasa"></img>
                     </div>
 
-                    <div className="containerInfo">
+                    <h2>Bem vindo a melhor loja de imóveis do Brasil</h2>
+                </div>
+            </section>
 
-                        <div className="containerLogin">
-                            <form>
-                    
-                                <section className="form-control">
-                                    
-                                    <p>NOME</p>
-                                    <input type="text" id="nomel" />
-                    
-                                </section>
-                    
-                                <section className="form-control">
-                                    
-                                    <p>SENHA</p>
-                                    <input type="text" id="SenhaL"></input>
-                                    
-                                </section>
-                    
-                            </form>       
-                            <a href="">CONTINUAR</a>             
+            <section className="categorias">
+
+                <div className="theme">
+                    <button id="themeChanger"><img src="public/medias/images/TEMA.png" alt="" id="themeIcon"></img></button>
+                </div>
+
+                <div className="box-containerL">
+
+                    <div className="containerL">
+                        <div className="icon">
+                            <img src="public/medias/images/entrarIcon.svg" alt="" id="boxEntrar"></img>
                         </div>
 
+                        <div className="containerInfo">
+
+                            <div className="containerLogin">
+                                <form onSubmit={handleSubmit}>
+                                    <section className="form-control">
+                                        <p>NOME</p>
+                                        <input type="text" required id="nomel" value={nome} onChange={handleNomeChange} />
+                                    </section>
+
+                                    <section className="form-control">
+                                        <p>SENHA</p>
+                                        <input type="password" required id="SenhaL" value={senha} onChange={handleSenhaChange} />
+                                    </section>
+
+                                    {loginError && <p style={{ color: 'red' }}>Usuário ou senha incorretos</p>}
+
+                                    <button type="submit">CONTINUAR</button>
+                                </form>
+                                <a href="">CONTINUAR</a>
+                            </div>
+
+                        </div>
                     </div>
+
+
+
                 </div>
 
-                
+                <h1>Não tem uma conta ainda?</h1>
+                <a href="/signup">Cadaste-se aqui.</a>
+            </section>
 
-            </div>
-
-            <h1>Não tem uma conta ainda?</h1>
-            <a href="/signup">Cadaste-se aqui.</a>
-        </section>
-
-    </main>
+        </main>
     )
 }

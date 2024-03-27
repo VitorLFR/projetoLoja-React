@@ -2,7 +2,7 @@ import './index.css'
 
 export function Infos() {
   return (
-    <main>
+    <main className='InfosPage'>
       <section className="maisInfo">
         <div className="maisInfoContent">
           <div className="iconAbout">
