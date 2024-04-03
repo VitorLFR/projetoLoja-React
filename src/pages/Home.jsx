@@ -19,9 +19,7 @@ export function Home() {
 
             <section className="categorias">
 
-                <div className="theme">
-                    <button id="themeChanger"><img src="public/medias/images/TEMA.png" alt="" id="themeIcon"></img></button>
-                </div>
+                
                 <h2>OFERECEMOS</h2>
 
                 <div className="box-container">

@@ -27,7 +27,7 @@ body{
 
 /* Fim da criação de variáveis */
 
-header{
+/* header{
     background-color: var(--cor01);
     width: 100%;
 }
@@ -80,7 +80,7 @@ a{
     text-decoration: none;
     color: var(--corFonte01);
     transition: var(--themeChangeTime);
-}
+} */
 
 /* Fim da estilização do Header */
 
@@ -132,6 +132,10 @@ main{
     font-size: 1.8vw;
 }
 
+#seeAllProducts:hover{
+    color: gray;
+}
+
 .box-container{
     display: flex;
     justify-content: space-between;
@@ -177,20 +181,19 @@ main{
 
 .containerInfo > a{
     background-color: var(--cor03);
-    color: var(--corFonte02);
-    border-radius: 30px;
+    color: var(--corFonte02) !important;
+    border-radius: 30px !important; 
     padding: 2% 10%;
-    border: 2px solid var(--corFonte02) ;
-    font-weight: 600;
+    border: 2px solid var(--corFonte02) !important ;
+    font-weight: 600 !important;
     transition: var(--themeChangeTime);
-    font-size: 1.3vw;
+    font-size: 1.3vw !important;
 }
 
 .containerInfo > a:hover{
-
-    padding: 4% 20%;
-    color: var(--corFonte01);
-    border: 3px solid var(--corFonte03) ;
+    padding: 4% 20% !important;
+    color: var(--corFonte01) !important;
+    border: 3px solid var(--corFonte03) !important ;
     transition: var(--themeChangeTime);
 }
 

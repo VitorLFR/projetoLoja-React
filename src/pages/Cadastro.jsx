@@ -58,16 +58,6 @@ export function Cadastro() {
       </section>
 
       <section className="categorias">
-        <div className="theme">
-          <button id="themeChanger">
-            <img
-              src="public/medias/images/TEMA.png"
-              alt=""
-              id="themeIcon"
-            ></img>
-          </button>
-        </div>
-
         <div className="box-containerL">
           <div className="containerL">
             <div className="icon">

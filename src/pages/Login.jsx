@@ -25,7 +25,7 @@ export function Login() {
             const response = await axios.get(`http://localhost:7000/users?nome=${nome}&senha=${senha}`);
             if (response.data.length > 0) {
                 // se o login for certo
-                navegacao('/');
+                navegacao('/Admin');
             } else {
                 // Usuário ou senha incorretos
                 setLoginError(true);
@@ -50,10 +50,6 @@ export function Login() {
             </section>
 
             <section className="categorias">
-
-                <div className="theme">
-                    <button id="themeChanger"><img src="public/medias/images/TEMA.png" alt="" id="themeIcon"></img></button>
-                </div>
 
                 <div className="box-containerL">
 
@@ -80,7 +76,6 @@ export function Login() {
 
                                     <button type="submit">CONTINUAR</button>
                                 </form>
-                                <a href="">CONTINUAR</a>
                             </div>
 
                         </div>

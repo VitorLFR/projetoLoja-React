@@ -40,7 +40,7 @@
 }
 
 .categorias a:hover{
-    color: var(--corFonte01);
+    color: gray;
     transition: var(--themeChangeTime);
 }
 
@@ -108,4 +108,23 @@
     letter-spacing: 3px;
     max-width: 200px;
     box-sizing: border-box;
+}
+
+.containerLogin > form > button{
+    background-color: var(--cor03);
+    color: var(--corFonte02) !important;
+    border-radius: 30px !important; 
+    padding: 2% 10%;
+    border: 2px solid var(--corFonte02) !important ;
+    font-weight: 600 !important;
+    transition: var(--themeChangeTime);
+    font-size: 1.3vw !important;
+    cursor: pointer;
+}
+
+.containerLogin > form > button:hover{
+    transform: scale(1.05);
+    color: var(--corFonte01) !important;
+    border: 3px solid var(--corFonte03) !important ;
+    transition: var(--themeChangeTime);
 }

@@ -103,9 +103,22 @@ main{
     font-weight: 300;
     letter-spacing: 0.05vw;
     border: 3px solid var(--corFonte02);
-    width: 40%;
     text-align: left;
     transition: var(--themeChangeTime);
+    text-wrap: nowrap;
+    text-align: center;
+    width: 50%;
+}
+
+.descriptionTitle{
+    margin: 0 auto;
+    text-align: center;
+    
+}
+
+.descriptionTable > h2{
+    text-align: center;
+    margin: 0 auto;
 }
 
 h2{

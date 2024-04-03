@@ -81,13 +81,13 @@
       "tipo": "Fazenda"
     },
     {
-      "id": "e0a8",
+      "id": "38a7",
       "nome": "Gonçalves",
-      "imagem": "C:\\fakepath\\casa-de-fazenda-ganha-privacidade-e-conexao-com-a-natureza-6.png",
-      "preco": "2000",
-      "local": "Cotia",
+      "preco": "3000",
       "condicao": "Usado",
+      "local": "Cotia",
       "tamanho": "30km²",
+      "imagem": "https://f.i.uol.com.br/fotografia/2016/06/15/616165-970x600-1.jpeg",
       "tipo": "Fazenda"
     }
   ],
@@ -269,6 +269,26 @@
     {
       "id": "8984",
       "nome": "Félix",
+      "senha": "12345"
+    },
+    {
+      "id": "f2b5",
+      "nome": "Senai",
+      "senha": "TecSesi"
+    },
+    {
+      "id": "5a36",
+      "nome": "Teste",
+      "senha": "123"
+    },
+    {
+      "id": "057d",
+      "nome": "Gabriel",
+      "senha": "123"
+    },
+    {
+      "id": "4a9e",
+      "nome": "Gustavo",
       "senha": "12345"
     }
   ]

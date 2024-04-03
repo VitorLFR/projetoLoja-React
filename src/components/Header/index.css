@@ -9,10 +9,11 @@ header{
     justify-content: space-between;
     padding-top: 1%;
     margin: 0 auto;
+    flex-direction: column;
 }
 
 .logo{
-    width: 7%;
+    width: 10%;
 }
 
 .logo img{
@@ -29,10 +30,11 @@ header li{
     width: 20%;
     text-align: center;
     transition: var(--themeChangeTime);
+    margin: 0 auto;
 }
 
 .menu a{
-    font-size: 1.5vw;
+    font-size: 1.7vw;
     word-spacing: 0.2rem;
     font-weight: 100;
     color: var(--corFonte01);

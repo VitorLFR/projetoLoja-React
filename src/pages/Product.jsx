@@ -8,10 +8,10 @@ var currentProductType = localStorage.getItem("productType");
 
 
 
-export function Product(){
+export function Product() {
 
-    var typeProductPath = "http://localhost:7000" 
-    
+  var typeProductPath = "http://localhost:7000"
+
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -35,62 +35,62 @@ export function Product(){
 
 
 
-  return(
-        
+  return (
+
     <main>
 
-    <section className="productMain">
-        <div className="theme" >
-            <button id="themeChanger"><img src="public/medias/images/TEMA.png" alt="" id="themeIcon"></img></button>
-        </div>
-        
+      <section className="productMain">
+
         <div className="productDisplay">
-            <div className="barralateral"></div>
+          <div className="barralateral"></div>
 
-            {data.map((product) => (
-                <div className="ProductInfos" key={product.id}>
+          {data.map((product) => (
+            <div className="ProductInfos" key={product.id}>
 
-                <div className="returnBtn"><a href="/shop"><img src="public/medias/images/returnBtn.svg" alt="" id="returnBtn"></img></a></div>
+              <div className="returnBtn"><a href="/shop"><img src="public/medias/images/returnBtn.svg" alt="" id="returnBtn"></img></a></div>
 
-                <div className="productMainInfos">
-                    <h1 id="productName">{product.nome}</h1>
-                    <img src={product.imagem} alt="" id="productImage"></img>
-                    <p id="productPrice">R$ {product.preco}</p>
-                    <a href="" id="addToCart">ADICIONAR AO CARRINHO</a>
+              <div className="productMainInfos">
+                <h1 id="productName">{product.nome}</h1>
+                <img src={product.imagem} alt="" id="productImage"></img>
+                <p id="productPrice">R$ {product.preco}</p>
+                <a href="" id="addToCart">ADICIONAR AO CARRINHO</a>
+              </div>
+
+              <div className='descriptionTitle'>
+                  <h2>DESCRIÇÃO DO PRODUTO</h2>
                 </div>
 
-                <table className="descriptionTable">
-                    
-                <h2>DESCRIÇÃO DO PRODUTO</h2>
-                    <tbody>
-                        <tr>
-                            <td>Local:</td>
-                            <td id="productLocal">{product.local}</td>
-                        </tr>
-                        <tr>
-                            <td>Condição:</td>
-                            <td id="productCondition">{product.condicao}</td>
-                        </tr>
-                        <tr>
-                            <td>Tamanho:</td>
-                            <td id="productSize">{product.tamanho}</td>
-                        </tr>
-                        <tr>
-                            <td>Tipo:</td>
-                            <td id="productType">{product.tipo}</td>
-                        </tr>
+              <table className="descriptionTable">            
 
-                    </tbody>
-                </table>
+                <tbody className='tableBody'>
+                  <tr>
+                    <td>Local:</td>
+                    <td id="productLocal">{product.local}</td>
+                  </tr>
+                  <tr>
+                    <td>Condição:</td>
+                    <td id="productCondition">{product.condicao}</td>
+                  </tr>
+                  <tr>
+                    <td>Tamanho:</td>
+                    <td id="productSize">{product.tamanho}</td>
+                  </tr>
+                  <tr>
+                    <td>Tipo:</td>
+                    <td id="productType">{product.tipo}</td>
+                  </tr>
+
+                </tbody>
+              </table>
             </div>
-            ))}
+          ))}
 
-            <div className="barralateral"></div>
+          <div className="barralateral"></div>
         </div>
-    </section>
-</main>
+      </section>
+    </main>
 
-)
+  )
 }
 
-    
+

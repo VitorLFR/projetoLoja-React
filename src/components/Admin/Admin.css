@@ -1,3 +1,13 @@
+:root{
+    --corFundo: linear-gradient(to bottom, white, white,  #2ec4b574);
+    --cor01: #032612;
+    --cor02: #009688;
+    --cor03: #00E3CC;
+    --corFonte01: white;
+    --corFonte02: black;
+    --corFonte03: #BCC5CE;
+    --themeChangeTime: ease 0.25s;
+}
 
 .tableContainer{
     display: flex;
@@ -7,33 +17,35 @@
     margin: 0 auto;
     align-items: center;
     justify-content: space-between;
+    margin-top: 2%;
 }
 
 .tableBox{
-    border: 2px solid black;
+    border: 2px solid var(--corFonte02);
     width: 25%;
 }
 
-.productTable{
-    margin-top: 5%;
-    margin-bottom: 10%;
+.ProductTable{
+    margin-top: 2%;
+    margin-bottom: 5%;
+    color: var(--corFonte02);
 }
 
-.productTable h1, h3{
-    margin-bottom: 3%;
+.ProductTable h1, h3{
     letter-spacing: 0.05vw;
 }
-.productTable h3{
+.ProductTable h3{
     font-weight: 200;
-    font-size: 1vw !important;
+    font-size: 2vw !important;
 }
 
-.productTable h1{
-    font-size: 2vw;
+.ProductTable h1{
+    font-size: 3vw !important;
+    font-weight: 300;
 }
 
-.productTable h2{
-    font-size: 1.5vw;
+.ProductTable h2{
+    font-size: 2vw !important;
 }
 
 .valuesP{
@@ -43,8 +55,32 @@
 .valuesP input{
     width: 15vw;
     height: 2vw;
+    font-size: 1.5vw;
+    font-weight: 200;
+    letter-spacing: 0.05vw;
 }
 
 .valuesP p{
     font-size: 1.5vw;
+}
+
+.productValues > button{
+    background-color: var(--cor03);
+    color: var(--corFonte02) !important;
+    border-radius: 30px !important; 
+    padding: 2% 10% ;
+    border: 2px solid var(--corFonte02) !important ;
+    font-weight: 400 !important;
+    transition: var(--themeChangeTime);
+    font-size: 1.4vw !important;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    letter-spacing: 0.05vw;
+}
+
+.productValues > button:hover{
+    transform: scale(1.2);
+    color: var(--corFonte01) !important;
+    border: 3px solid var(--corFonte03) !important ;
+    transition: var(--themeChangeTime);
 }

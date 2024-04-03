@@ -74,15 +74,6 @@ export function Shop() {
       </section>
 
       <section className="categorias produtosG">
-        <div className="theme">
-          <button id="themeChanger">
-            <img
-              src="public/medias/images/TEMA.png"
-              alt=""
-              id="themeIcon"
-            ></img>
-          </button>
-        </div>
         <h2>OFERECEMOS</h2>
       </section>
 
