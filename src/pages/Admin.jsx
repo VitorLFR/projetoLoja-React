@@ -1,8 +1,15 @@
+// Importa o hook useState do React para gerenciar estados em componentes funcionais
 import { useState } from "react";
+
+// Importa o arquivo de estilos para este componente
 import "../components/Admin/Admin.css";
+
+// Importa a biblioteca axios para realizar requisições HTTP
 import axios from "axios";
 
+// Componente de Administração que permite adicionar, atualizar e remover produtos
 export function Admin() {
+  // Estados para os dados dos formulários de adicionar, atualizar e remover produtos
   const [formDataAdicionar, setFormDataAdicionar] = useState({
     nome: "",
     preco: "",
@@ -30,6 +37,7 @@ export function Admin() {
     tipo: "",
   });
 
+  // Funções para atualizar os estados dos formulários
   const handleInputChangeAdicionar = (event) => {
     const { name, value } = event.target;
     setFormDataAdicionar((prevFormData) => ({ ...prevFormData, [name]: value }));
@@ -45,10 +53,12 @@ export function Admin() {
     setFormDataRemover((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
 
+  // Funções para submeter os formulários
   const handleSubmitAdicionar = async (event) => {
     event.preventDefault();
 
     try {
+      // Realiza uma requisição POST para adicionar um produto com os dados do formulário
       const response = await axios.post(
         `http://localhost:7000/${formDataAdicionar.tipo.toLowerCase()}s`,
         formDataAdicionar
@@ -56,6 +66,7 @@ export function Admin() {
       console.log("Operação realizada:", response.data);
       console.log("Imagem: ", formDataAdicionar.imagem)
       alert("Produto adicionado com sucesso");
+      // Reseta o estado do formulário de adicionar produto
       setFormDataAdicionar({
         nome: "",
         preco: "",
@@ -74,7 +85,7 @@ export function Admin() {
     event.preventDefault();
   
     try {
-  
+      // Realiza uma requisição GET para obter informações do produto a ser atualizado
       const response = await axios.get(
         `http://localhost:7000/${formDataAtualizar.tipo.toLowerCase()}s?nome=${formDataAtualizar.nome}`
       );
@@ -87,7 +98,7 @@ export function Admin() {
       const produto = response.data[0];
       const produtoId = produto.id;
   
-
+      // Prepara os dados atualizados do produto
       const dadosAtualizados = {
         nome: formDataAtualizar.novoNome || produto.nome,
         preco: formDataAtualizar.novoPreco || produto.preco,
@@ -107,6 +118,7 @@ export function Admin() {
       console.log("Operação realizada:", atualizacaoResponse.data);
   
       alert("Produto atualizado com sucesso");
+      // Reseta o estado do formulário de atualizar produto
       setFormDataAtualizar({
         nome: "",
         tipo: "",
@@ -127,6 +139,7 @@ export function Admin() {
     event.preventDefault();
 
     try {
+      // Realiza uma requisição GET para obter informações do produto a ser removido
       const response = await axios.get(
         `http://localhost:7000/${formDataRemover.tipo.toLowerCase()}s?nome=${formDataRemover.nome}`
       );
@@ -144,12 +157,14 @@ export function Admin() {
       const produtoId = produto.id;
       console.log("ID do produto:", produtoId);
 
+      // Remove o produto usando o ID obtido
       await axios.delete(
         `http://localhost:7000/${formDataRemover.tipo.toLowerCase()}s/${produtoId}`
       );
 
       console.log("Produto removido com sucesso");
       alert("Produto Removido com sucesso")
+      // Reseta o estado do formulário de remover produto
       setFormDataRemover({
         nome: "",
         preco: "",
@@ -160,11 +175,10 @@ export function Admin() {
         tipo: "",
       });
     } catch (error) {
-      console.log("Erro ao realizar operação", error);
+      console.error("Erro ao realizar operação", error);
       alert("Não foi possível remover o produto")
     }
   };
-
 
   return (
     <main className="AdminPage">

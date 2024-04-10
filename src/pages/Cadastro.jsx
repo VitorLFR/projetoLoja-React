@@ -1,29 +1,39 @@
+// Importa a biblioteca axios para realizar requisições HTTP
 import axios from "axios";
+
+// Importa o hook useState do React para gerenciar estados em componentes funcionais
 import { useState } from "react";
 
+// Componente de Cadastro de Usuário
 export function Cadastro() {
+  // Estados para o nome, senha e verificação de nome existente
   const [nome, setNome] = useState("");
   const [senha, setSenha] = useState("");
   const [nomeExistente, setNomeExistente] = useState(false);
 
+  // Função para atualizar o estado do nome conforme o usuário digita
   const handleNomeChange = (event) => {
     setNome(event.target.value);
   };
 
+  // Função para atualizar o estado da senha conforme o usuário digita
   const handleSenhaChange = (event) => {
     setSenha(event.target.value);
   };
 
+  // Função para submeter o formulário de cadastro de usuário
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
+      // Verifica se o nome de usuário já existe
       const response = await axios.get(
         `http://localhost:7000/users?nome=${nome}`
       );
       if (response.data.length > 0) {
         setNomeExistente(true);
       } else {
+        // Se o nome de usuário não existe, realiza a requisição POST para cadastrar o usuário
         const response = await axios.post("http://localhost:7000/users", {
           nome: nome,
           senha: senha,
@@ -31,7 +41,7 @@ export function Cadastro() {
         console.log("Usuário cadastrado com sucesso:", response.data);
 
         alert("Usuário criado com sucesso");
-        // Limpe os campos de entrada após o envio do formulário
+        // Limpa os campos de entrada após o envio do formulário
         setNome("");
         setSenha("");
         setNomeExistente(false);
@@ -40,6 +50,7 @@ export function Cadastro() {
       console.error("Erro ao cadastrar usuário:", error);
     }
   };
+
 
   return (
     <main>

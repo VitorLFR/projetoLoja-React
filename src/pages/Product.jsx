@@ -1,29 +1,44 @@
+// Importa a biblioteca axios para realizar requisições HTTP
 import axios from 'axios'
+
+// Importa o arquivo de estilos para este componente
 import '../components/Product/Product.css'
+
+// Importa os hooks useEffect e useState do React para gerenciar efeitos colaterais e estados em componentes funcionais
 import { useEffect, useState } from 'react';
 
+// Obtém o ID do produto atual armazenado no armazenamento local do navegador
 const currentId = localStorage.getItem("produtoId");
+
+// Exibe o ID do produto atual no console para fins de depuração
 console.log(localStorage.getItem("produtoId"))
+
+// Obtém o tipo de produto atual armazenado no armazenamento local do navegador
 var currentProductType = localStorage.getItem("productType");
 
-
-
+// Componente de Produto que exibe os detalhes de um produto específico
 export function Product() {
-
+  // Caminho base para a API de produtos
   var typeProductPath = "http://localhost:7000"
 
+  // Estado para armazenar os dados do produto
   const [data, setData] = useState([]);
 
+  // Efeito que é executado após a renderização inicial para buscar os detalhes do produto
   useEffect(() => {
     const fetchData = async () => {
       try {
         let response;
+        // Verifica se o tipo de produto atual não é '/'
         if (currentProductType !== "/") {
+          // Se não for '/', faz uma solicitação GET para obter detalhes do produto com base no ID e no tipo de produto
           response = await axios.get(`${typeProductPath}${currentProductType}/?id=${currentId}`);
         } else {
+          // Caso contrário, obtém o tipo de produto 'all' armazenado no armazenamento local e faz uma solicitação GET para obter detalhes do produto
           const productTypeAll = localStorage.getItem("productTypeAll");
           response = await axios.get(`${typeProductPath}/${productTypeAll.toLowerCase()}s/?id=${currentId}`);
         }
+        // Define os dados do produto no estado
         setData(response.data);
       } catch (error) {
         console.error("Erro ao buscar produto:", error);
@@ -31,7 +46,7 @@ export function Product() {
     };
 
     fetchData();
-  }, [currentId, currentProductType]);
+  }, []); // Os colchetes vazios indicam que este efeito será executado apenas uma vez após a renderização inicial
 
 
 
